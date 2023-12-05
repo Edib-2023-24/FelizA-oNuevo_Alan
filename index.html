@@ -1,69 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- SEO = Básico -->
-    <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
 
-    <!-- Etiquetas Open Graph y Twitter Card, para crear el SEO de Redes Sociales -->
-    <meta property="og:title" content="Título de tu página" />
-    <meta property="og:description" content="Descripción de tu página" />
-    <meta
-      property="og:image"
-      content="URL de la imagen que quieres mostrar en las redes sociales"
-    />
-    <meta property="og:url" content="URL de tu página" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Título de tu página" />
-    <meta name="twitter:description" content="Descripción de tu página" />
-    <meta
-      name="twitter:image"
-      content="URL de la imagen que quieres mostrar en Twitter"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- SEO = Básico -->
+  <!-- Cada página del sitio tiene que ser diferente el título y la descripción -->
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
 
-    <!-- App Web, inidicar al navegador que elementos mostrar en un JSON -->
-    <link rel="manifest" href="site.webmanifest" />
-    <!-- icono de acceso para IOS -->
-    <link rel="apple-touch-icon" href="icon.png" />
-    <!-- Recordar que favicon.ico tiene que estar en el directorio inicial -->
+  <!-- Etiquetas Open Graph y Twitter Card, para crear el SEO de Redes Sociales -->
+  <meta property="og:title" content="Título de tu página" />
+  <meta property="og:description" content="Descripción de tu página" />
+  <meta property="og:image" content="URL de la imagen que quieres mostrar en las redes sociales" />
+  <meta property="og:url" content="URL de tu página" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Título de tu página" />
+  <meta name="twitter:description" content="Descripción de tu página" />
+  <meta name="twitter:image" content="URL de la imagen que quieres mostrar en Twitter" />
 
-    <!-- links de estilos -->
-    <link rel="stylesheet" href="css/style.css" />
-    
-    <!-- Se cambia el tema de algunos navegadores -->
-    <meta name="theme-color" content="#fafafa" />
-    <!-- Código de las plataformas de Análisis -->
-    <script></script>
-    <!-- Scripts a cargar antes de la renderización -->
-    <script src="preloader.js"></script>
-  </head>
-  <body>
-    <div id="container">
-      <!-- *** ESTRUCTURA SEMÁNTICA *** -->
-      <!-- Header (encabezado de la página, zona superior) -->
-      <header>
-        <!-- nav (el navegador de toda la web) -->
-        <nav>
-          <a href="" class="link1">link1</a>
-          <a href="" class="link2">link2</a>
-          <a href="" class="link3">link3</a>
-          <a href="" class="link4">link4</a>
-        </nav>
-      </header>
-      <!-- Main (centro de la página, zona central) -->
-      <main>
-        <!-- section y article (posibilidades dentro de main) -->
-      </main>
-      <!-- Footer (final de la página, zona inferior) -->
-      <footer>
-        <h6>&copy;Copyright</h6>
-      </footer>
-    </div>
+  <!-- App Web, inidicar al navegador que elementos mostrar en un JSON -->
+  <link rel="manifest" href="site.webmanifest" />
+  <!-- icono de acceso para IOS -->
+  <link rel="apple-touch-icon" href="icon.png" />
+  <!-- Recordar que favicon.ico tiene que estar en el directorio inicial -->
 
-  </body>
+  <!-- links de estilos -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Se cambia el tema de algunos navegadores -->
+  <meta name="theme-color" content="#fafafa" />
+  <!-- Código de las plataformas de Análisis -->
+  <script></script>
+  <!-- Scripts a cargar antes de la renderización -->
+  <script src="preloader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;600&display=swap" rel="stylesheet">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Establecer la fecha final del año 2023 (meses en JavaScript son 0-indexados)
+    const fechaFinal = new Date(2023, 11, 31, 23, 59, 59);
+
+    function actualizarContador() {
+      const ahora = new Date();
+      const tiempoRestante = fechaFinal - ahora;
+
+      const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+
+      // Actualizar los elementos HTML con los valores calculados
+      document.querySelector('.dias .numero').textContent = dias.toString().padStart(2, '0');
+      document.querySelector('.horas .numero').textContent = horas.toString().padStart(2, '0');
+      document.querySelector('.minutos .numero').textContent = minutos.toString().padStart(2, '0');
+    }
+
+    // Actualizar el contador cada segundo
+    setInterval(actualizarContador, 1000);
+
+    // Inicializar el contador al cargar la página
+    actualizarContador();
+
+  });
+</script>
+</head>
+
+<body>
+  <div id="container">
+    <section class="tiempo">
+      <div class="barra"></div>
+      <h3 class="minutos"><span class="numero">00</span> minutos</h3>
+      <h3 class="horas"><span class="numero">00</span> horas</h3>
+      <h3 class="dias"><span class="numero">00</span> dias</h3>
+    </section>
+  </div>
+  
+</body>
+
 </html>
